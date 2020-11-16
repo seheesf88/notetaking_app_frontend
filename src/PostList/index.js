@@ -1,4 +1,5 @@
 import React from 'react';
+import EditContainer from '../EditContainer'
 
 const PostList = (props) =>{
     console.log(props.allPosts)
@@ -7,29 +8,41 @@ const PostList = (props) =>{
         let currentUser = localStorage.getItem('username')
 
         return (
-                <li key={item.id}>
-                  <span>{item.title}</span>
-                  <span>{item.content}</span>
-                  <span>{item.username}</span>
-                  {currentUser === item.username?
-                    <div>
-                    <button onClick={props.deletePost.bind(null, item.id)}>Delete</button>
-                    </div> :
-                    <span>
-                      <button>Login to edit/delete</button>
-                    </span>
+                <tr key={item.id}>
+                  <th scope="col">{item.title}</th>
+                  <td>{item.content}</td>
+                  <td>{item.username}</td>
+                {currentUser === item.username?
+                  <td className="container">
 
-                  }
-                </li>
+                    <td className="col-5"><EditContainer item={item}/></td>
+                    <td className="col-5"><button onClick={props.deletePost.bind(null, item.id)}>Delete</button></td>
+                  </td>
+                :
+                  <td>
+                    <button>Login to edit/delete</button>
+                  </td>
+                }
+                </tr>
             )
 
     });
     return(
-        <div>
-          <ol>
+        <>
+          <table className="table">
+            <thead>
+              <tr>
+                <th className="w-25" scope="col">Title</th>
+                <th className="w-50" scope="col">Content</th>
+                <th className="w-25" scope="col">Author</th>
+                <th className="w-25" scope="col">Remove/Edit</th>
+              </tr>
+            </thead>
+          <tbody>
             {posts}
-          </ol>
-        </div>
+          </tbody>
+              </table>
+        </>
     );
 }
 

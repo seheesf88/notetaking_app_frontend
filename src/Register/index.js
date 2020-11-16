@@ -23,18 +23,21 @@ class Register extends Component {
 
   render(){
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Username:
-          <input type='text' name='username' onChange={this.handleChange}/>
-        </label>
-        <label>
-          password:
-          <input type='text' name='password' onChange={this.handleChange}/>
-        </label>
-        <button type='submit'>Register</button>
-      </form>
-
+      <div className="container">
+        <form className="row text-center offset-1" onSubmit={this.handleSubmit}>
+          <div className="form-group col-4 row">
+            <label className="col-4 pt-1" htmlFor="username">Username:</label>
+            <input className="form-control col-8" type='text' id="username" name='username' onChange={this.handleChange}/>
+          </div>
+          <div className="form-group col-4 row">
+            <label className="col-4 pt-1" htmlFor="password">Password:</label>
+            <input className="form-control col-8" type='text' id="password" name='password' onChange={this.handleChange}/>
+          </div>
+          <div className="form-group col-2">
+            <button className="btn btn-primary" type='submit'>Register</button>
+          </div>
+        </form>
+      </div>
       )
   }
 }
