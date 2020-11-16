@@ -37,13 +37,15 @@ Backend
 
 ```
 git clone https://github.com/seheesf88/notetaking_app_backend.git
+cd notetaking_app_backend
+virtualenv .env -p python3
+source .env/bin/activate
 pip3 install flask-restful peewee flask flask_login flask_cors
 pip3 freeze > requirements.txt
-virtualenv .env -p python3
+
 ```
 
 run
 ```
-source .env/bin/activate
 python3 app.py
 ```
