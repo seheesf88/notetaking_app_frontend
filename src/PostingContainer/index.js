@@ -26,7 +26,7 @@ class PostingContainer extends Component {
 
   render(){
     return (
-      <div className="container ml-5">
+      <div className="container ml-4">
         <form className="row" onSubmit={this.handlePostSubmit}>
           <div className="col-8 pl-5">
             <div className="form-group row">

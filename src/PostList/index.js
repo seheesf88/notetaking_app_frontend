@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import EditContainer from '../EditContainer'
+import Login from '../Login'
 import { Accordion, Button } from 'react-bootstrap';
 
 class PostList extends Component {
@@ -23,23 +24,26 @@ class PostList extends Component {
                     </td>
                     :
                     <td>
-                      <button>Login</button>
+                      <div className="badge badge-danger">Login please!</div>
                     </td>
                   }
                   {currentUser === item.username?
-                <Accordion>
-                    <div>
-                      <Accordion.Toggle as={Button} variant="link" eventKey="1">
-                        <button className="btn btn-primary mt-1">Edit</button>
-                      </Accordion.Toggle>
-                    </div>
-                    <Accordion.Collapse eventKey="1">
-                      <div><EditContainer item={item}/></div>
-                    </Accordion.Collapse>
-                </Accordion>
-
+                    <td className="py-0">
+                    <Accordion>
+                        <div>
+                          <Accordion.Toggle as={Button} variant="link" eventKey="1">
+                            <button className="btn btn-primary mt-1">Edit</button>
+                          </Accordion.Toggle>
+                        </div>
+                        <Accordion.Collapse eventKey="1">
+                          <div><EditContainer item={item}/></div>
+                        </Accordion.Collapse>
+                    </Accordion>
+                  </td>
                   :
-                    <td><button>Login</button></td>
+                  <td>
+                    <div className="badge badge-danger">Login please!</div>
+                  </td>
                   }
                   </tr>
               )
@@ -56,7 +60,7 @@ class PostList extends Component {
                 <th className="w-50" scope="col">Content</th>
                 <th className="" scope="col">Author</th>
                 <th className="" scope="col">Remove</th>
-                <th className="w-50" scope="col">Edit</th>
+                <th className="w-75" scope="col">Edit</th>
               </tr>
             </thead>
           <tbody>
