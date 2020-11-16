@@ -19,7 +19,30 @@ Tech stacks
 - Database : SQLite
 
 Installation
+
+Frontend
+
 ```
 git clone https://github.com/seheesf88/notetaking_app_frontend.git
 npm install
+```
+run
+
+```
+npm start
+```
+
+Backend
+
+```
+git clone https://github.com/seheesf88/notetaking_app_backend.git
+pip3 install flask-restful peewee flask flask_login flask_cors
+pip3 freeze > requirements.txt
+virtualenv .env -p python3
+```
+
+run
+```
+source .env/bin/activate
+python3 app.py
 ```

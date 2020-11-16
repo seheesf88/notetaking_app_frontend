@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 class Register extends Component {
   constructor(){
     super();
-
     this.state = {
       username: '',
       password: '',
@@ -14,13 +13,11 @@ class Register extends Component {
     this.setState({
       [e.target.name]: e.target.value
     })
-
   }
 
   handleSubmit = (e) => {
     e.preventDefault()
     this.props.handleRegister(this.state)
-
   }
 
 

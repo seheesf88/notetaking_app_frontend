@@ -11,7 +11,6 @@ class PostingContainer extends Component {
     }
   }
 
-
   handlePostChange = (e) => {
     this.setState({
       username : this.props.username,
@@ -23,7 +22,6 @@ class PostingContainer extends Component {
     this.props.handlePosting(this.state)
   }
 
-
   render(){
     return (
       <div className="container ml-4">
@@ -33,13 +31,11 @@ class PostingContainer extends Component {
               <label className="col-2 mr-3 text-right">Title:</label>
               <input className="form-control col-9" type='text' name='title' onChange={this.handlePostChange} value={this.state.title}/>
             </div>
-
             <div className="form-group row">
               <label className="col-2 mr-3 text-right">Content:</label>
               <textarea className="form-control col-9" type='text' name='content' onChange={this.handlePostChange} value={this.state.content}/>
             </div>
           </div>
-
           <div className="col-1">
             <div className="form-group row">
               <button className="form-control btn btn-primary" type='submit'>Post</button>

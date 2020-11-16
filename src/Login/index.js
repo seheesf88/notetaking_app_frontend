@@ -17,9 +17,8 @@ class Login extends Component {
     })
   }
 
-
-	 handleLoginSubmit = async (e) =>{
-     e.preventDefault()
+	handleLoginSubmit = async (e) =>{
+    e.preventDefault()
 		try{
 				const response = await fetch(`http://localhost:8000/api/v1/users/login`, {
 				method: 'POST',
@@ -33,14 +32,12 @@ class Login extends Component {
 				if(!response.ok){
 					throw Error(response.statusText);
 				}
-        console.log('sucess?>');
 
 				const parsedReponse = await response.json();
         localStorage.setItem('username', parsedReponse.username);
         window.location.reload();
-		}
 
-		catch(err){
+		}catch(err){
 			console.log("Error: ", err);
 		}
 	}

@@ -8,53 +8,38 @@ class PostList extends Component {
     super();
   }
     render(){
-
       const posts = this.props.allPosts.slice().reverse().map((item) => {
-          let currentUser = localStorage.getItem('username')
-
-          return (
-                  <tr key={item.id} className="text-center">
-                    <th scope="col">{item.title}</th>
-                  
-
+        let currentUser = localStorage.getItem('username')
+        return (
+              <tr key={item.id} className="text-center">
+                <th scope="col">{item.title}</th>
                   { currentUser === item.username ?
                     <td>{item.content}</td> :
                     <td><div className="badge badge-danger">Login please!</div></td>
-
                   }
                     <td>{item.username}</td>
                   { currentUser === item.username ?
-                    <td>
-                      <button className="btn btn-primary" onClick={this.props.deletePost.bind(null, item.id)}>Delete</button>
-                    </td>
-                    :
-                    <td>
-                      <div className="badge badge-danger">Login please!</div>
-                    </td>
+                    <td><button className="btn btn-primary" onClick={this.props.deletePost.bind(null, item.id)}>Delete</button></td> :
+                    <td><div className="badge badge-danger">Login please!</div></td>
                   }
-                  {currentUser === item.username?
+                  { currentUser === item.username ?
                     <td className="py-0">
-                    <Accordion>
-                        <div>
-                          <Accordion.Toggle as={Button} variant="link" eventKey="1">
-                            <button className="btn btn-primary mt-1">Edit</button>
-                          </Accordion.Toggle>
-                        </div>
-                        <Accordion.Collapse eventKey="1">
-                          <div><EditContainer item={item}/></div>
-                        </Accordion.Collapse>
-                    </Accordion>
-                  </td>
-                  :
-                  <td>
-                    <div className="badge badge-danger">Login please!</div>
-                  </td>
-                  }
-                  </tr>
-              )
+                      <Accordion>
+                          <div>
+                            <Accordion.Toggle as={Button} variant="link" eventKey="1">
+                              <button className="btn btn-primary mt-1">Edit</button>
+                            </Accordion.Toggle>
+                          </div>
+                          <Accordion.Collapse eventKey="1">
+                            <div><EditContainer item={item}/></div>
+                          </Accordion.Collapse>
+                      </Accordion>
+                    </td> :
+                  <td><div className="badge badge-danger">Login please!</div></td>
+                 }
+              </tr>
+            )
       });
-
-
 
     return (
         <>
@@ -71,7 +56,7 @@ class PostList extends Component {
           <tbody>
             {posts}
           </tbody>
-              </table>
+        ]</table>
         </>
     );
   }
