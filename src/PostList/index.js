@@ -15,9 +15,14 @@ class PostList extends Component {
           return (
                   <tr key={item.id} className="text-center">
                     <th scope="col">{item.title}</th>
-                    <td>{item.content}</td>
-                    <td>{item.username}</td>
+                  
 
+                  { currentUser === item.username ?
+                    <td>{item.content}</td> :
+                    <td><div className="badge badge-danger">Login please!</div></td>
+
+                  }
+                    <td>{item.username}</td>
                   { currentUser === item.username ?
                     <td>
                       <button className="btn btn-primary" onClick={this.props.deletePost.bind(null, item.id)}>Delete</button>

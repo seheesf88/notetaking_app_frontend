@@ -20,7 +20,6 @@ Tech stacks
 
 Installation
 ```
-git clone
+git clone https://github.com/seheesf88/notetaking_app_frontend.git
 npm install
 ```
- 
