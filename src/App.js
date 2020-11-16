@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Register from './Register';
 import PostingContainer from './PostingContainer';
-
+import PostList from './PostList';
 
 
 class App extends Component {
@@ -10,8 +10,9 @@ class App extends Component {
     super();
 
     this.state = {
-      allPosts : [],
       username : "",
+      allPosts : [],
+
   }
 
 }
@@ -47,7 +48,6 @@ class App extends Component {
   }
 
 
-
   handleRegister = async (data) => {
 
     try {
@@ -67,8 +67,7 @@ class App extends Component {
 
       this.setState({
         username : registerParsed.username,
-      });
-
+      })
 
       localStorage.setItem('username', registerParsed.username);
 
@@ -80,35 +79,72 @@ class App extends Component {
 
     }
 
-  handlePosting = async (data) => {
-    console.log('handleposting data', data);
-    try {
-      const registerResponse = await fetch('http://localhost:8000/api/v1/postings', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        credentials: 'include',
-        headers: {
-          'Content-Type': 'application/json'
+
+
+    handlePosting = async (data) => {
+      console.log('handleposting data', data);
+      try {
+        const registerResponse = await fetch('http://localhost:8000/api/v1/postings', {
+          method: 'POST',
+          body: JSON.stringify(data),
+          credentials: 'include',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+
+        })
+
+        const registerParsed = await registerResponse.json()
+
+        console.log(this.getPostings());
+
+        }catch(err){
+          console.log(err)
         }
 
-      })
-
-      const registerParsed = await registerResponse.json()
-      }catch(err){
-        console.log(err)
       }
 
-    }
 
+    deletePost = async (id) => {
+      try {
+
+          const response = await fetch(`http://localhost:8000/api/v1/postings/` + id, {
+              method: 'DELETE'
+          });
+          if (!response.ok) {
+              throw Error(response.statusText);
+          }
+
+          this.setState({
+              allPosts: this.state.allPosts.filter( post => post.id !== id)
+          });
+      } catch (err) {
+          return err;
+      }
+  }
 
   render() {
-    console.log('here', this.state.allPosts)
+    // console.log('state', this.state.allPosts);
     return (
-      <div className="App">
-        <div className="">Note Taking App</div>
-        <Register handleRegister={this.handleRegister} />
-        <PostingContainer handlePosting={this.handlePosting} username={this.state.username}/>
-
+      <div className="App container px-3 py-3">
+        <div className="row mb-5">
+          <div className="col-4 offset-4 h1">Note taking app</div>
+        </div>
+        <div className="row">
+          <Register handleRegister={this.handleRegister}/>
+        </div>
+            {this.state.username ?
+              <div className="row">
+                <PostingContainer handlePosting={this.handlePosting} username={this.state.username}/>
+              </div>
+                 :
+              <div className="row">
+                <div>Please register</div>
+              </div>
+            }
+        <div className="row">
+          <PostList allPosts={this.state.allPosts} deletePost={this.deletePost} editPost={this.editPost}/>
+        </div>
       </div>
     );
   }
