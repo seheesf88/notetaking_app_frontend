@@ -5,12 +5,9 @@ import { Accordion, Button } from 'react-bootstrap';
 class PostList extends Component {
   constructor(){
     super();
-    this.state = {
-      open: false
-    }
   }
     render(){
-      const { open } = this.state;
+
       const posts = this.props.allPosts.slice().reverse().map((item) => {
           let currentUser = localStorage.getItem('username')
 

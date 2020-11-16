@@ -19,11 +19,9 @@ class PostingContainer extends Component {
     })
   }
   handlePostSubmit = (e) => {
-    e.preventDefault()
+    // e.preventDefault()
     this.props.handlePosting(this.state)
-
   }
-
 
 
   render(){
