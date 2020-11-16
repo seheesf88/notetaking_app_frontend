@@ -56,7 +56,7 @@ class PostList extends Component {
           <tbody>
             {posts}
           </tbody>
-        ]</table>
+          </table>
         </>
     );
   }

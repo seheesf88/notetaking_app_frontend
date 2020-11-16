@@ -29,6 +29,7 @@ npm install
 run
 
 ```
+cd notetaking_app_frontend
 npm start
 ```
 
