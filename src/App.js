@@ -35,7 +35,6 @@ class App extends Component {
       }
 
       const responseParsed = await response.json();
-      console.log('iii', responseParsed.postings)
 
       this.setState({
         allPosts: responseParsed.postings

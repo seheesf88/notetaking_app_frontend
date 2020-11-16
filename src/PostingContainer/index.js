@@ -8,7 +8,6 @@ class PostingContainer extends Component {
       "title" : '',
       "content" : '',
       "username" : '',
-
     }
   }
 

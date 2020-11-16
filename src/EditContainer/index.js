@@ -45,17 +45,17 @@ class EditContainer extends Component {
 
   render(){
     return (
-      <div className="container w-100 px-5 py-5">
-        <form onSubmit={this.handleEditSubmit}>
-          <div className="form-group row">
-            <label className="col-1">Title:</label>
-            <input className="col-10 form-control" type='text' name='title' onChange={this.handleEditChange}/>
+      <div className="">
+        <form className="" onSubmit={this.handleEditSubmit}>
+          <div className="form-group text-left">
+            <label className="">Title:</label>
+            <input className="form-control" type='text' name='title' onChange={this.handleEditChange}/>
           </div>
-          <div className="form-group row">
-            <label className="col-1">Content:</label>
-            <textarea className="col-10"type='text' name='content' onChange={this.handleEditChange}/>
+          <div className="form-group text-left">
+            <label className="">Content:</label>
+            <textarea className="form-control" type='text' name='content' onChange={this.handleEditChange}/>
           </div>
-          <div className="form-group row">
+          <div className="form-group">
             <button className="btn btn-primary" type='submit'>Update</button>
           </div>
         </form>
