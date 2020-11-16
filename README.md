@@ -1,7 +1,7 @@
 # Note Taking App
 by. SeHee
 
-Goal
+#Goal
 - Duration : 2hrs
 - Render a list of notes onto a web page.
 - Allow the user to create new notes in the user interface (UI).
@@ -18,9 +18,9 @@ Tech stacks
 - Backend : Python, Flask
 - Database : SQLite
 
-Installation
+##Installation
 
-Frontend
+#Frontend
 
 ```
 git clone https://github.com/seheesf88/notetaking_app_frontend.git
@@ -33,7 +33,7 @@ cd notetaking_app_frontend
 npm start
 ```
 
-Backend
+#Backend
 
 ```
 git clone https://github.com/seheesf88/notetaking_app_backend.git
