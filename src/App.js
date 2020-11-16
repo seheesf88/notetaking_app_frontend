@@ -139,7 +139,7 @@ class App extends Component {
               </div>
                  :
               <div className="row">
-                <div>Please register</div>
+                <div className="offset-4 font-weight-bold">Please register before post!</div>
               </div>
             }
         <div className="row">

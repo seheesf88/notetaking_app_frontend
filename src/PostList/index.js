@@ -13,14 +13,16 @@ const PostList = (props) =>{
                   <td>{item.content}</td>
                   <td>{item.username}</td>
                 {currentUser === item.username?
-                  <td className="container">
-
-                    <td className="col-5"><EditContainer item={item}/></td>
-                    <td className="col-5"><button onClick={props.deletePost.bind(null, item.id)}>Delete</button></td>
-                  </td>
+                  <td><EditContainer item={item}/></td>
                 :
+                  <td><button>Login</button></td>
+                }
+
+                { currentUser === item.username ?
+                  <td><button onClick={props.deletePost.bind(null, item.id)}>Delete</button></td>
+                  :
                   <td>
-                    <button>Login to edit/delete</button>
+                    <button>Login</button>
                   </td>
                 }
                 </tr>
@@ -35,7 +37,8 @@ const PostList = (props) =>{
                 <th className="w-25" scope="col">Title</th>
                 <th className="w-50" scope="col">Content</th>
                 <th className="w-25" scope="col">Author</th>
-                <th className="w-25" scope="col">Remove/Edit</th>
+                <th className="w-25" scope="col">Edit</th>
+                <th className="w-25" scope="col">Remove</th>
               </tr>
             </thead>
           <tbody>
